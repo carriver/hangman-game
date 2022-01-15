@@ -10,6 +10,28 @@
 </head>
 
 <body>
-    {{demo}}
+    <div>
+        <span>Guesses left: {{guesses}}</span>
+        <br><br>
+        <span>Wrong letters guessed: 
+            <span ng-repeat="letter in wrongLettersSubmitted">
+                {{letter}}
+            </span>
+        </span>
+        <br><br>
+        <span>Correct letters guessed: 
+            <span ng-repeat="letter in correctLettersSubmitted">
+                {{letter}}
+            </span>
+        </span>
+        <br><br>
+        <span>You have to guess: {{displayWord}}</span>
+        <br><br>
+    </div>
+
+    <div>
+        <input type ="text" name="guess" ng-model="input.letter">
+        <button ng-click="letterSubmitted()">Submit</button>
+    </div>
 </body>
 </html>

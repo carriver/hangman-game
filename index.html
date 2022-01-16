@@ -25,12 +25,13 @@
             </span>
         </span>
         <br><br>
-        <span>You have to guess: {{displayWord}}</span>
+        <span>Guess the animal: {{displayWord}}</span>
         <br><br>
     </div>
 
     <div>
-        <input type ="text" name="guess" ng-model="input.letter">
+        <span>Enter letter:</span>
+        <input type ="text" name="guess" ng-model="input.letter" maxlength="1">
         <button ng-click="letterSubmitted()">Submit</button>
     </div>
 </body>

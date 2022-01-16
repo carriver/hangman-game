@@ -1,16 +1,14 @@
 const app = angular.module('HangmanGame',[]);
 
-app.controller('ctrl',['$scope','$timeout', function($scope, $timeout) {
+app.controller('ctrl', ($scope, $timeout) => {
         
     $scope.wrongLettersSubmitted = [];
 	$scope.correctLettersSubmitted = [];
     $scope.guesses = 6;
 	$scope.displayWord = '';
-	$scope.input = {
-		letter: ''
-	};
+	$scope.input = { letter: '' }
 
-    const words = ['rat','cat'];
+    const words = ['Dog', 'Cat', 'Donkey', 'Horse', 'Monkey', 'Bear', 'Koala', 'Lion', 'Snake', 'Lemur', 'Fox', 'Fish', 'Iguana', 'Frog', 'Elephant', 'Chicken', 'Baboon', 'Cow', 'Rat', 'Tiger', 'Eagle', 'Crab', 'Bison', 'Ant', 'Duck', 'Sheep', 'Wolf'];
 
     const randomWord = () => {
 		const index = Math.floor(Math.random()*words.length);
@@ -18,6 +16,7 @@ app.controller('ctrl',['$scope','$timeout', function($scope, $timeout) {
     }
 
     const selectedWord = randomWord();
+    console.log(selectedWord);
 
     const newHangmanGame = () => {
         $scope.wrongLettersSubmitted = [];
@@ -65,19 +64,15 @@ app.controller('ctrl',['$scope','$timeout', function($scope, $timeout) {
 
         if($scope.guesses == 0) {
             alert('You lost!');
-            $timeout(function() {
-                newHangmanGame();
-            },500);
+            $timeout(() => newHangmanGame(),500);
         }
 
         if($scope.displayWord.indexOf("*") == -1) {
-            alert('You won!');
-            $timeout(function() {
-                newHangmanGame();
-            },500);
+            alert(`You won!\nThe animal is: ${selectedWord}.`);
+            $timeout(() => newHangmanGame(),500);
         }
     }
 
     newHangmanGame();
      
-}]);
+});

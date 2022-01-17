@@ -26,6 +26,11 @@ app.controller('ctrl', ($scope, $timeout) => {
     }
     
     $scope.letterSubmitted = () => {
+        if ($scope.input.letter.length == 0) {
+            $scope.input.letter = '';
+            return;
+        }
+
         for (let index = 0; index < $scope.wrongLettersSubmitted.length; index++) {
             if ($scope.wrongLettersSubmitted[index].toUpperCase()
                 == $scope.input.letter.toUpperCase()){

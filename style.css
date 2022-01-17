@@ -1,0 +1,7 @@
+/* Change input width to half the size on large screens */
+
+@media (min-width: 768px) {
+  .halfw {
+    width: 50%;
+  }
+}
